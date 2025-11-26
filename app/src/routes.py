@@ -192,6 +192,7 @@ def predict():
         movie_with_rating = {"title": movie.title, "rating": review.score}
         if movie_with_rating not in training_data:
             training_data.append(movie_with_rating)
+    print(training_data)
     data = recommend_for_new_user(training_data, selected_genre, release_year)
     data = data.to_json(orient="records")
     return jsonify(data)
